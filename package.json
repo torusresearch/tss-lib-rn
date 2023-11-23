@@ -1,0 +1,41 @@
+{
+  "name": "@toruslabs/tss-lib-node",
+  "version": "1.1.3",
+  "description": "",
+  "types": "node.d.ts",
+  "main": "dist/tssLibNode.cjs.js",
+  "files": [
+    "wasm",
+    "node.js",
+    "node.d.ts",
+    "dkls.d.ts",
+    "dkls_bg.wasm.d.ts",
+    "dist"
+  ],
+  "scripts": {
+    "pre-commit": "lint-staged --cwd .",
+    "lint": "eslint --fix 'src/**/*.ts'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "depcheck": "depcheck .",
+    "dev": "torus-scripts start",
+    "build": "torus-scripts build && npm run copy-wasm",
+    "copy-wasm": "cp -r wasm dist/",
+    "prepack": "npm run build"
+  },
+  "lint-staged": {
+    "*.{json,md}": [
+      "prettier --write"
+    ],
+    "*.{js,ts}": "eslint --cache --fix"
+  },
+  "keywords": [],
+  "author": "Web3Auth",
+  "license": "BSD",
+  "dependencies": {
+    "@toruslabs/torus-scripts": "^5.0.5",
+    "wasm2js": "^0.2.0"
+  },
+  "devDependencies": {
+    "@toruslabs/config": "^2.0.2"
+  }
+}

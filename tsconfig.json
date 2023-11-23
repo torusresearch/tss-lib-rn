@@ -1,0 +1,10 @@
+{
+  "extends": "@toruslabs/config/tsconfig.default.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "allowJs": true,
+    "skipLibCheck": true,
+  },
+  "include": ["./"],
+}
+
