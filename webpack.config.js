@@ -1,5 +1,5 @@
 exports.baseConfig = {
-    entry: "./node.js",
+    entry: "./src/node.js",
     target: 'node',
     node: {
     __dirname: false,
