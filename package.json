@@ -18,8 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "depcheck": "depcheck .",
     "dev": "torus-scripts start",
-    "build": "torus-scripts build && npm run copy-wasm",
-    "copy-wasm": "cp -r wasm dist/",
+    "build": "torus-scripts build",
+    "copy-wasm": "cp -r src/wasm dist/",
     "prepack": "npm run build"
   },
   "lint-staged": {
