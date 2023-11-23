@@ -5,6 +5,7 @@
     "allowJs": true,
     "skipLibCheck": true,
   },
-  "include": ["./"],
+  "include": ["src"],
+  "output": "dist"
 }
 
