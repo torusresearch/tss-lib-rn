@@ -153,7 +153,7 @@ module.exports.random_generator = function (state) {
     const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
     console.log("wasm-bindge retptr", retptr);
     const ptr0 = passStringToWasm0(state, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-    console.log("wasm-bindge ptr", ptr);
+    console.log("wasm-bindge ptr", ptr0);
     const len0 = WASM_VECTOR_LEN;
     wasm.random_generator(retptr, ptr0, len0);
     var r0 = getInt32Memory0()[retptr / 4 + 0];
