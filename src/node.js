@@ -794,26 +794,24 @@ module.exports.__wbindgen_closure_wrapper551 = function(arg0, arg1, arg2) {
 const wasmfile = require('./wasm/serverWasm');
 let wasmMod = wasmfile({imports: imports });
 
-wasm = wasmMod.exports;
-
 // wasm = wasmMod.exports;
-// const init = async () => {
-//     return new Promise( (resolve, reject) => {
-//         wasmMod.onload(() => {
-//             console.log("instantiate done")
-//             wasm = wasmMod.exports;
-//             module.exports.__wasm = wasm;
-//             console.log(!!module.exports.__wasm)
-//             resolve();
-//         })
-//     })
-// }
+const init = async () => {
+    return new Promise( (resolve, reject) => {
+        wasmMod.onload(() => {
+            console.log("instantiate done")
+            wasm = wasmMod.exports;
+            module.exports.__wasm = wasm;
+            console.log(!!module.exports.__wasm)
+            resolve();
+        })
+    })
+}
 
 module.exports.wasmMod = wasmMod;
 
 module.exports.wasmImports = imports;
 
-// module.exports.init = init;
+module.exports.init = init;
 
 module.exports.__wasm = wasm;
 
