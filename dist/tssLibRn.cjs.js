@@ -4,7 +4,6 @@
 /***/ 323:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-/* module decorator */ module = __webpack_require__.nmd(module);
 let imports = {};
 imports['__wbindgen_placeholder__'] = module.exports;
 let wasm;
@@ -750,7 +749,7 @@ const init = async () => {
     });
   });
 };
-module.wasmImports = imports;
+module.exports.wasmImports = imports;
 module.exports.init = init;
 module.exports.__wasm = wasm;
 
@@ -785,30 +784,17 @@ module.exports = require("buffer");
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/node module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nmd = (module) => {
-/******/ 			module.paths = [];
-/******/ 			if (!module.children) module.children = [];
-/******/ 			return module;
-/******/ 		};
-/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	

@@ -799,7 +799,7 @@ const init = async () => {
     })
 }
 
-module.wasmImports = imports;
+module.exports.wasmImports = imports;
 
 module.exports.init = init;
 
