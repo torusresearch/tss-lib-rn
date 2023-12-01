@@ -793,6 +793,7 @@ const init = async () => {
         wasmMod.onload(() => {
             console.log("instantiate done")
             wasm = wasmMod.exports;
+            module.exports.__wasm = wasm;
             resolve();
         })
     })
