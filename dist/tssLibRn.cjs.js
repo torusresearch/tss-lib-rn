@@ -743,7 +743,6 @@ const init = async () => {
   return new Promise((resolve, reject) => {
     wasmMod.onload(() => {
       console.log("instantiate done");
-      console.log(JSON.stringify(wasmMod.exports));
       wasm = wasmMod.exports;
       resolve();
     });
