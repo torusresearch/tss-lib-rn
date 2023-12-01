@@ -738,9 +738,12 @@ let wasmMod = wasmfile({
   imports: imports,
   async: true
 });
+wasm = wasmMod.exports;
 const init = async () => {
   return new Promise((resolve, reject) => {
     wasmMod.onload(() => {
+      console.log("instantiate done");
+      console.log(wasmMod);
       wasm = wasmMod.exports;
       resolve();
     });
