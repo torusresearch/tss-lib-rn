@@ -738,21 +738,24 @@ let wasmMod = wasmfile({
   imports: imports,
   async: true
 });
-wasm = wasmMod.exports;
+
+// wasm = wasmMod.exports;
 const init = async () => {
   return new Promise((resolve, reject) => {
     wasmMod.onload(() => {
       console.log("instantiate done");
       wasm = wasmMod.exports;
       module.exports.__wasm = wasm;
-      resolve();
+      console.log(!!module.exports.__wasm);
+      resolve(wasm);
     });
   });
 };
 module.exports.wasmMod = wasmMod;
 module.exports.wasmImports = imports;
 module.exports.init = init;
-module.exports.__wasm = wasm;
+
+// module.exports.__wasm = wasm;
 
 /***/ }),
 
