@@ -747,7 +747,7 @@ const init = async () => {
       wasm = wasmMod.exports;
       module.exports.__wasm = wasm;
       console.log(!!module.exports.__wasm);
-      resolve(wasm);
+      resolve();
     });
   });
 };
