@@ -798,6 +798,7 @@ const init = async () => {
         })
     })
 }
+module.exports.wasmMod = wasmMod;
 
 module.exports.wasmImports = imports;
 
