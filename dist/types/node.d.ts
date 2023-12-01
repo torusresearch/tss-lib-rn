@@ -93,5 +93,6 @@ export class WasmBindgenTestContext {
     */
     run(tests: any[]): Promise<any>;
 }
+export function init(): Promise<any>;
 declare let wasm: any;
 export { wasm as __wasm };
