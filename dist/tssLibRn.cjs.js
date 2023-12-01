@@ -749,6 +749,7 @@ const init = async () => {
     });
   });
 };
+module.exports.wasmMod = wasmMod;
 module.exports.wasmImports = imports;
 module.exports.init = init;
 module.exports.__wasm = wasm;
