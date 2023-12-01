@@ -739,7 +739,9 @@ module.exports.__wbindgen_closure_wrapper551 = function (arg0, arg1, arg2) {
   return addHeapObject(ret);
 };
 const wasmfile = __webpack_require__(188);
-let wasmMod = wasmfile();
+let wasmMod = wasmfile({
+  imports: imports
+});
 
 // wasm = wasmMod.exports;
 const init = async () => {
