@@ -792,7 +792,7 @@ module.exports.__wbindgen_closure_wrapper551 = function(arg0, arg1, arg2) {
 
  
 const wasmfile = require('./wasm/serverWasm');
-let wasmMod = wasmfile({imports: imports });
+let wasmMod = wasmfile({imports: imports , async: true});
 
 // wasm = wasmMod.exports;
 const init = async () => {
