@@ -5,6 +5,14 @@ exports.baseConfig = {
     __dirname: false,
     __filename: false,
     },
+    module: {
+        rules: [
+            {
+                test: /\.wasm$/,
+                type: "asset/inline"
+            }
+        ]
+    },
     experiments :{
         asyncWebAssembly: true
     }

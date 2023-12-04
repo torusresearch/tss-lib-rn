@@ -1,3 +1,4 @@
+
 let imports = {};
 imports['__wbindgen_placeholder__'] = module.exports;
 let wasm;
@@ -790,24 +791,22 @@ module.exports.__wbindgen_closure_wrapper551 = function(arg0, arg1, arg2) {
     return addHeapObject(ret);
 };
 
- 
-const wasmfile = require('./wasm/serverWasm');
-let wasmMod = wasmfile({imports: imports , async: true});
-
-// wasm = wasmMod.exports;
-const init = async () => {
-    return new Promise( (resolve, reject) => {
-        wasmMod.onload(() => {
-            console.log("instantiate done")
-            wasm = wasmMod.exports;
-            module.exports.__wasm = wasm;
-            console.log(!!module.exports.__wasm)
-            resolve();
-        })
-    })
+function toUint8Array (s) {
+    return (require('buf' + 'fer').Buffer).from(s, 'base64')
 }
 
-module.exports.wasmMod = wasmMod;
+const init = async () => {
+    let wasmData = require('./wasm/server.wasm').split(",")[1];
+    
+    console.log("wasmData", wasmData);
+    const result = await WebAssembly.instantiate(toUint8Array(wasmData), imports)
+    wasm = result.instance.exports
+   
+    module.exports.__wasm = wasm; 
+    // let wasmModule = new WebAssembly.Module( toUint8Array( wasmData));
+    // wasm = new WebAssembly.Instance(wasmModule, imports).exports;
+}
+
 
 module.exports.wasmImports = imports;
 
